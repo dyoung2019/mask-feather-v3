@@ -1,6 +1,19 @@
-# New Project
+# mask-feather-v3
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
+
+## Links 
+
+https://www.npmjs.com/package/bezier-js
+https://github.com/Pomax/bezierjs
+
+https://github.com/hughsk/bezier
+
+https://pomax.github.io/bezierinfo/
+https://oreillymedia.github.io/Using_SVG/extras/ch06-fill-rule.html
+https://www.w3.org/TR/SVG2/painting.html#WindingRule
+
+https://www.shadertoy.com/view/XsXSz4
 
 ## Available Scripts
 
