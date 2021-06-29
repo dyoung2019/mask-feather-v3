@@ -1,5 +1,6 @@
 import { BSTree } from "typescript-collections";
 import type { PathSegment } from "./PathSegment";
+import { PathSegmentType } from "./PathSegmentType";
 
 export default function sweepThrough(
     y: number, 

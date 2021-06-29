@@ -1,4 +1,4 @@
-import type { PathSegment } from "./PathSegment";
+import type { PathSegment } from "./PathSegment.js";
 
 export interface CompoundPath {
   segments: PathSegment[]

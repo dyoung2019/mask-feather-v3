@@ -1,17 +1,16 @@
-import { default as Bezier } from "bezier-js";
-import asPixelDims from "./asPixelDimensions.js";
-import type { CompoundPath } from "./CompoundPath";
-import type { PathSegment } from "./PathSegment";
-import unionBoundingBoxes from "./unionBoundingBoxes.js";
+import asPixelDims from "./asPixelDimensions";
+import unionBoundingBoxes from "./unionBoundingBoxes";
+import { Bezier } from "bezier-js";
+import { PathSegmentType } from "./PathSegmentType";
 
-export default function buildPathShape(): CompoundPath {
-  const generateRegion = (paths: Bezier[]) => {
+export default function buildPathShape() {
+  const generateRegion = (paths: any[]) => {
     const boxes = paths.map(c => c.bbox())
     const selection = unionBoundingBoxes(boxes)
     return asPixelDims(selection)
   }
 
-  const generateSegments = (paths: Bezier[]): PathSegment[] =>  {
+  const generateSegments = (paths: any[]) =>  {
     return paths.map(path => {
       return {type: PathSegmentType.Cubic, curve: path}
     })
@@ -34,6 +33,8 @@ export default function buildPathShape(): CompoundPath {
     new Bezier([ptB, ptB1, ptB2, ptC]),
     new Bezier([ptC, ptC1, ptC2, ptA]),
   ]
+
+  // return {}
 
   return {
     segments: generateSegments(curves),

@@ -1,8 +1,14 @@
 import { h } from 'preact';
 import { useCallback, useRef } from 'preact/hooks';
 import p5 from 'p5';
-import renderRect from './renderRect';
 import testScene from './testScene';
+import buildPathShape from './buildPathShape.js';
+// import renderShape from './renderShape';
+import type { CompoundPath } from './CompoundPath';
+import renderRect from './renderRect';
+import renderShape from './renderShape';
+import traceShape from './traceShape';
+import renderTracing from './renderTracing';
 
 export default function P5Container() {
   const graphics = useRef<p5|null>();
@@ -29,8 +35,14 @@ export default function P5Container() {
       containerRef.current = node;
 
       const sketch = (g: p5) => {
+        let shape: any = null;
+        let tracing: any = null;
+
         g.setup = () => {
           g.createCanvas(400, 400);
+          shape = buildPathShape();
+          tracing = traceShape(shape);
+          console.log(tracing)
         }
         
         g.draw = () => {
@@ -50,7 +62,15 @@ export default function P5Container() {
           }
 
           // fill path
-          renderRect(g, info)
+          // renderRect(g, info)
+          // if (!!shape) {
+          //   renderShape(g, shape);
+          // }
+
+          if (!!tracing) {
+            renderTracing(g, tracing);
+          }
+
           testScene(g)
         }
       }

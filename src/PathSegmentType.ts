@@ -1,4 +1,4 @@
-const enum PathSegmentType {
+export enum PathSegmentType {
   Point = 1,
   Line = 2,
   Quadratic = 3,

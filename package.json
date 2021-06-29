@@ -2,9 +2,11 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
+    "clean": "snowpack --reload",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx}\""
+    "lint": "prettier --check \"src/**/*.{js,jsx}\"",
+    "typings": "tsc node_modules/bezier-js/dist/bezier.js --declaration --allowJs --emitDeclarationOnly --outDir types"
   },
   "dependencies": {
     "bezier-js": "^4.1.1",
@@ -18,12 +20,11 @@
     "@snowpack/plugin-typescript": "^1.2.1",
     "@snowpack/web-test-runner-plugin": "^0.2.2",
     "@testing-library/preact": "^2.0.1",
-    "@types/bezier-js": "^0.0.8",
     "@types/p5": "^0.9.1",
     "@types/snowpack-env": "^2.3.3",
     "@web/test-runner": "^0.13.3",
     "prettier": "^2.2.1",
     "snowpack": "^3.3.7",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.4"
   }
 }

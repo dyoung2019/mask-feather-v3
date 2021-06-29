@@ -1,5 +1,7 @@
+import type { PathSegmentType } from "./PathSegmentType";
+
 export type PathSegment =
   | { type: PathSegmentType.Point, points: []}
   | { type: PathSegmentType.Line, points: []}
-  | { type: PathSegmentType.Quadratic, curve: BezierJs.Bezier }
-  | { type: PathSegmentType.Cubic, curve: BezierJs.Bezier }
+  | { type: PathSegmentType.Quadratic, curve: any }
+  | { type: PathSegmentType.Cubic, curve: any}

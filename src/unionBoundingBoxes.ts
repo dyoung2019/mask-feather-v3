@@ -1,11 +1,11 @@
-export default function unionBoundingBoxes(boxes: BezierJs.BBox[]) {
+export default function unionBoundingBoxes(boxes: any[]) {
   const firstBox = boxes[0]
   let topLeftY = firstBox.y.min;
   let topLeftX = firstBox.x.min;
   let bottomRightX = firstBox.x.max;
   let bottomRightY = firstBox.y.max;
 
-  const extendX = (box: BezierJs.BBox) => {
+  const extendX = (box: any) => {
     // update if less
     const minX = box.x.min
     if (minX < topLeftX) {
@@ -18,7 +18,7 @@ export default function unionBoundingBoxes(boxes: BezierJs.BBox[]) {
     }
   }
 
-  const extendY = (box: BezierJs.BBox) => {
+  const extendY = (box: any) => {
     const minY = box.y.min
     if (minY < topLeftY) {
       topLeftY = minY
